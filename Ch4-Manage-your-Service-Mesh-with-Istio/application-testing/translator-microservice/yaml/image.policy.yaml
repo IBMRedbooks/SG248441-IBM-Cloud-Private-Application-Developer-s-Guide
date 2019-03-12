@@ -1,0 +1,8 @@
+apiVersion: securityenforcement.admission.cloud.ibm.com/v1beta1
+kind: ImagePolicy
+metadata:
+  name: my-images-whitelist
+  namespace: deploy-demo
+spec:
+  repositories:
+    - name: docker.io/*
