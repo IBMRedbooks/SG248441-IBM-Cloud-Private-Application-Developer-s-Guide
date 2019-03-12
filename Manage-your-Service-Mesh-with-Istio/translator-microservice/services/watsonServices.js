@@ -1,17 +1,13 @@
-//const API_KEY = "qhQsyn4dSPZ-HuD9gfclpdmGiwGfcZmaZnWA9eAtqKe4";
+//Language Translator credentials provided after service creation to authenticate your service instance
 const API_KEY = process.env.API_KEY;
-
-//const WATSON_TRANSLATOR_API = "http://gateway-lon.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01";
-
-const WATSON_TRANSLATOR_API = process.env.WATSON_TRANSLATOR_API;
+const WATSON_TRANSLATOR_API = process.env.WATSON_TRANSLATOR_API + "/v3/translate?version=2018-05-01";
 
 var auth = "Basic " + new Buffer("apikey" + ":" + API_KEY).toString("base64");
-
 const request = require('request');
 
 
 /*
- * Call Watson Translator Service to translate from English to Arabic
+ * Call Language Translator Service to translate from English to French
  */
 exports.translate = function (req, callback) {
 	var options = {
@@ -24,7 +20,7 @@ exports.translate = function (req, callback) {
 		json: true,
 		body: {
 			"text" : req.body.text,
-			"model_id": "en-ar"
+			"model_id": "en-fr"
 		}
 	  };
 
@@ -39,6 +35,5 @@ exports.translate = function (req, callback) {
 		}
 		
 	});
-
 
 };
