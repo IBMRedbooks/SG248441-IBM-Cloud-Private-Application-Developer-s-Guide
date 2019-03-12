@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: translator-ms-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: translator-ms
+  template:
+    metadata:
+      labels:
+        app: translator-ms
+    spec:
+      containers:
+      - name: translator-ms
+        image: aazraq/translator-microservice:1.43
+        env:
+        - name: WATSON_TRANSLATOR_API
+          valueFrom:
+            secretKeyRef:
+              name: watson-translator
+              key: url
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: watson-translator
+              key: api-key
+        resources:
+          limits:
+            memory: "200Mi"
+            cpu: "250m"
+          requests:
+            memory: "100Mi"
+            cpu: "125m"
+        ports:
+        - containerPort: 80
