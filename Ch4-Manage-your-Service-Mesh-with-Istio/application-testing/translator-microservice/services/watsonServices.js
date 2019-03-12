@@ -1,8 +1,4 @@
 //Language Translator credentials provided after service creation to authenticate your service instance
-console.log("API_KEY");
-console.log(process.env.API_KEY);
-console.log("WATSON_TRANSLATOR_API");
-console.log(process.env.WATSON_TRANSLATOR_API);
 const API_KEY = process.env.API_KEY;
 const WATSON_TRANSLATOR_API = process.env.WATSON_TRANSLATOR_API + "/v3/translate?version=2018-05-01";
 
