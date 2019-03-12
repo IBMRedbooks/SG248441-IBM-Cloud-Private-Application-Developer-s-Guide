@@ -14,6 +14,11 @@
 
 FROM node:6.12.0-alpine
 
+#Run as non-root
+RUN useradd --create-home -s /bin/bash redbooks-user
+WORKDIR /home/redbooks-user
+USER redbooks-user
+
 # Install the application
 ADD package.json /app/package.json
 RUN cd /app && npm install  
