@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: translator-ms
-        image: aazraq/translator-microservice:2.1
+        image: aazraq/translator-microservice:2.2
         env:
         - name: WATSON_TRANSLATOR_API
           valueFrom:
